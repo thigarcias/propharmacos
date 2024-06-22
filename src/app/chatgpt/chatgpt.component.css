@@ -176,8 +176,13 @@ input::placeholder {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .bot-message {
@@ -187,7 +192,7 @@ input::placeholder {
   margin-top: 10px;
 }
 
-.newchat{
+.newchat {
   display: flex;
   background: white;
   width: 10%;
@@ -210,10 +215,11 @@ pre {
 
 /* Media queries para responsividade */
 @media (max-width: 768px) {
-  .newchat{
+  .newchat {
     width: 31%;
     height: 9%;
   }
+
   .conteudo {
     width: 100%;
     padding: 10px;
@@ -232,7 +238,7 @@ pre {
     width: 24px;
     height: 24px;
     font-size: 20px;
-    top: -36px;
+    top: -37px;
     left: 90%;
   }
 
@@ -240,13 +246,21 @@ pre {
   .bot-message {
     max-width: 100%;
   }
+
+  .loader {
+    width: 18px;
+    height: 18px;
+    left: 90%;
+    top: -26px;
+  }
 }
 
 @media (max-width: 480px) {
-  .newchat{
+  .newchat {
     width: 31%;
     height: 9%;
   }
+
   .logo {
     width: 120px;
     height: 48px;
@@ -265,7 +279,14 @@ pre {
     width: 20px;
     height: 20px;
     font-size: 18px;
-    top: -32px;
+    top: -37px;
     left: 85%;
+  }
+
+  .loader {
+    width: 18px;
+    height: 18px;
+    left: 90%;
+    top: -26px;
   }
 }
