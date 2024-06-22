@@ -1,20 +1,19 @@
 <div class="container">
-    <div class="conteudo">
-      <div class="logo"></div>
-      <div class="chatbox-container">
-        <div class="messages-container">
-          <div *ngFor="let message of messages" [ngClass]="{'user-message': message.isUser, 'bot-message': !message.isUser}">
-            <markdown>{{ message.text }}</markdown>
-          </div>
+  <div class="conteudo">
+    <div class="logo"></div>
+    <div class="chatbox-container">
+      <div class="messages-container">
+        <div *ngFor="let message of messages" [ngClass]="{'user-message': message.isUser, 'bot-message': !message.isUser}">
+          <markdown>{{ message.text }}</markdown>
         </div>
-        <div class="input-container">
-          <textarea class="chatbox" [(ngModel)]="prompt" (keyup)="changeButtonColor()" [ngModelOptions]="{standalone: true}" placeholder="Digite uma pergunta ou comando"></textarea>
-          <span *ngIf="!isLoading" class="material-symbols-outlined" (click)="onSubmit()" id="send">arrow_upward</span>
-          <span *ngIf="isLoading" class="loader"></span>
-        </div>
-        
       </div>
-      <span class="warning">O ChatGPT-4o pode apresentar informações imprecisas. Por isso, cheque as respostas</span>
+      <div class="input-container">
+        <textarea class="chatbox" [(ngModel)]="prompt" (keyup)="changeButtonColor()" [ngModelOptions]="{standalone: true}" placeholder="Digite uma pergunta ou comando"></textarea>
+        <span *ngIf="!isLoading" class="material-symbols-outlined" (click)="onSubmit()" id="send">arrow_upward</span>
+        <span *ngIf="isLoading" class="loader"></span>
+      </div>
+      
     </div>
+    <span class="warning">O ChatGPT-4o pode apresentar informações imprecisas. Por isso, cheque as respostas</span>
   </div>
-  
+</div>
