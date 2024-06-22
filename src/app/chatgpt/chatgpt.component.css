@@ -1,3 +1,4 @@
+/* Importando a fonte Google Sans */
 @import url('https://fonts.cdnfonts.com/css/google-sans');
 
 html,
@@ -6,11 +7,10 @@ body {
   margin: 0;
   font-family: "Product Sans", sans-serif;
   background-color: #f3f4f6;
-
 }
 
 input::placeholder {
-  color: #9b9b9b; 
+  color: #9b9b9b;
 }
 
 .container {
@@ -44,7 +44,6 @@ input::placeholder {
   color: #333;
   font-weight: 600;
   font-size: 24px;
-  /* Tamanho de fonte ajustado */
   text-align: center;
   margin-bottom: 20px;
 }
@@ -63,7 +62,6 @@ input::placeholder {
 .logo {
   background-image: url(./logo.png);
   width: 154px;
-  /* Aumentando o tamanho do logo */
   height: 60px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -82,7 +80,6 @@ input::placeholder {
 
 .sugestao {
   width: 100px;
-  /* Aumentando o tamanho das sugestões */
   height: 100px;
   background-color: #e9b3c7;
   border-radius: 10px;
@@ -152,7 +149,6 @@ input::placeholder {
 .user-message,
 .bot-message {
   max-width: 80%;
-  /* Ajustando a largura máxima das mensagens */
   word-wrap: break-word;
   margin-bottom: 10px;
   padding: 10px;
@@ -194,4 +190,58 @@ pre {
   white-space: pre-wrap;
   word-wrap: break-word;
   margin: 0;
+}
+
+/* Media queries para responsividade */
+@media (max-width: 768px) {
+  .conteudo {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .messages-container {
+    height: 400px;
+  }
+
+  .chatbox {
+    height: 40px;
+    font-size: 14px;
+  }
+
+  #send {
+    width: 24px;
+    height: 24px;
+    font-size: 20px;
+    top: -36px;
+    left: 90%;
+  }
+
+  .user-message,
+  .bot-message {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    width: 120px;
+    height: 48px;
+  }
+
+  .messages-container {
+    height: 300px;
+  }
+
+  .chatbox {
+    height: 35px;
+    font-size: 12px;
+  }
+
+  #send {
+    width: 20px;
+    height: 20px;
+    font-size: 18px;
+    top: -32px;
+    left: 85%;
+  }
 }
