@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, HostListener, OnInit } from '@angular/core'
 import axios from 'axios'
 
 @Component({
@@ -7,6 +7,13 @@ import axios from 'axios'
   styleUrls: ['./chatgpt.component.css']
 })
 export class ChatgptComponent implements OnInit {
+  @HostListener('document:keydown.enter', ['$event'])
+  handleEnterKey(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+      this.onSubmit()
+    }
+  }
+
 
   constructor() { }
 
@@ -51,6 +58,7 @@ export class ChatgptComponent implements OnInit {
         response = await axios.post('https://gogood.brazilsouth.cloudapp.azure.com/iniciar_chat', {
           prompt: userMessage,
         })
+        this.isFirstMessage = false
       } else {
         response = await axios.post('https://gogood.brazilsouth.cloudapp.azure.com/continuar_chat', {
           input: userMessage,
@@ -67,5 +75,11 @@ export class ChatgptComponent implements OnInit {
     } finally {
       this.isLoading = false
     }
+  }
+  newChat(){
+    this.messages = []
+    this.threadId = null
+    this.isFirstMessage = true
+    this.messages.push({ text: 'Olá! Como posso te ajudar?', isUser: false})
   }
 }

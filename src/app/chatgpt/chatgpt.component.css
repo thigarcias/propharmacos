@@ -157,7 +157,8 @@ input::placeholder {
 
 .user-message {
   align-self: flex-end;
-  background-color: #5e99b5;
+  background-color: #212121;
+  color: white;
 }
 
 .loader {
@@ -181,9 +182,24 @@ input::placeholder {
 
 .bot-message {
   align-self: flex-start;
-  background-color: #f1a9c4;
+  background-color: white;
   margin-left: 15px;
   margin-top: 10px;
+}
+
+.newchat{
+  display: flex;
+  background: white;
+  width: 10%;
+  height: 6%;
+  justify-content: center;
+  align-items: center;
+  border-radius: 11px;
+  font-weight: 500;
+  color: #000000;
+  margin-bottom: 10px;
+  margin-left: auto;
+  cursor: pointer;
 }
 
 pre {
@@ -194,6 +210,10 @@ pre {
 
 /* Media queries para responsividade */
 @media (max-width: 768px) {
+  .newchat{
+    width: 31%;
+    height: 9%;
+  }
   .conteudo {
     width: 100%;
     padding: 10px;
@@ -223,6 +243,10 @@ pre {
 }
 
 @media (max-width: 480px) {
+  .newchat{
+    width: 31%;
+    height: 9%;
+  }
   .logo {
     width: 120px;
     height: 48px;
