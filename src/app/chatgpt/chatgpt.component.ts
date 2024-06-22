@@ -48,11 +48,11 @@ export class ChatgptComponent implements OnInit {
     try {
       var response
       if (this.isFirstMessage) {
-        response = await axios.post('http://localhost:5000/iniciar_chat', {
+        response = await axios.post('http://gogood.brazilsouth.cloudapp.azure.com:5000/iniciar_chat', {
           prompt: userMessage,
         })
       } else {
-        response = await axios.post('http://localhost:5000/continuar_chat', {
+        response = await axios.post('http://gogood.brazilsouth.cloudapp.azure.com:5000/continuar_chat', {
           input: userMessage,
           thread_id: this.threadId
         })
