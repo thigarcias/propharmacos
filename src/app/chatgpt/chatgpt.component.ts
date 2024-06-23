@@ -22,7 +22,7 @@ export class ChatgptComponent implements OnInit {
   }
 
   prompt = ''
-  threadId: string | null = null
+  threadId: string = ''
   messages: { text: string, isUser: boolean }[] = []
   isFirstMessage: boolean = true
   isLoading: boolean = false
@@ -55,12 +55,12 @@ export class ChatgptComponent implements OnInit {
     try {
       var response
       if (this.isFirstMessage) {
-        response = await axios.post('https://gogood.brazilsouth.cloudapp.azure.com/iniciar_chat', {
+        response = await axios.post('http://localhost:5000/iniciar_chat', {
           prompt: userMessage,
         })
         this.isFirstMessage = false
       } else {
-        response = await axios.post('https://gogood.brazilsouth.cloudapp.azure.com/continuar_chat', {
+        response = await axios.post('http://localhost:5000/continuar_chat', {
           input: userMessage,
           thread_id: this.threadId
         })
