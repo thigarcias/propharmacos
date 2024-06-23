@@ -59,6 +59,7 @@ export class ChatgptComponent implements OnInit {
           prompt: userMessage,
         })
         this.isFirstMessage = false
+        localStorage.setItem('thread_id', response.data.thread_id)
       } else {
         response = await axios.post('http://localhost:5000/continuar_chat', {
           input: userMessage,
@@ -66,8 +67,6 @@ export class ChatgptComponent implements OnInit {
         })
       }
       const formattedResponse = response.data.response
-      localStorage.setItem('thread_id', response.data.thread_id)
-
       this.messages.push({ text: formattedResponse, isUser: false })
       this.scrollToBottom()
     } catch (error) {
