@@ -62,11 +62,11 @@ export class ChatgptComponent implements OnInit {
       } else {
         response = await axios.post('http://localhost:5000/continuar_chat', {
           input: userMessage,
-          thread_id: this.threadId
+          thread_id: localStorage.getItem('thread_id'),
         })
       }
       const formattedResponse = response.data.response
-      this.threadId = response.data.thread_id
+      localStorage.setItem('thread_id', response.data.thread_id)
 
       this.messages.push({ text: formattedResponse, isUser: false })
       this.scrollToBottom()
@@ -78,7 +78,7 @@ export class ChatgptComponent implements OnInit {
   }
   newChat(){
     this.messages = []
-    this.threadId = null
+    localStorage.removeItem('thread_id')
     this.isFirstMessage = true
     this.messages.push({ text: 'Olá! Como posso te ajudar?', isUser: false})
   }
